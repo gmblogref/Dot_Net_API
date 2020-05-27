@@ -21,16 +21,16 @@ namespace GMB.Repository
         }
     }
 
-    public class GMAUtilitiesConnection
+    public class GMBUtilitiesConnection
     {
         public T GetAs<T>() where T : class
         {
-            return DBConnectionSettings.GetConnectionAs<T>("GMAUtilitiesConnection");
+            return DBConnectionSettings.GetConnectionAs<T>("GMBUtilitiesConnection");
         }
 
         public T GetParallelAs<T>() where T : class
         {
-            return DBConnectionSettings.GetParallelConnectionAs<T>("GMAUtilitiesConnection");
+            return DBConnectionSettings.GetParallelConnectionAs<T>("GMBUtilitiesConnection");
         }
     }
 }
