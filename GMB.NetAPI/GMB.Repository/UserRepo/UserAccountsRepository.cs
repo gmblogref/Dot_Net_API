@@ -16,7 +16,7 @@ namespace GMB.Repository.UserRepo
     public abstract class UserAccountsRepository
     {
         [Sql("UserAccounts_Delete", Schema = "dbo")]
-        public abstract Task<int> DeleteUserAccount(int userAccountsId);
+        public abstract Task DeleteUserAccount(int userAccountsId);
 
         [Sql("UserAccounts_GetAll", Schema = "dbo")]
         public abstract Task<IEnumerable<UserAccounts>> GetAllUserAccounts();
