@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.Repository", "GMB.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.NetAPI", "GMB.NetAPI\GMB.NetAPI.csproj", "{5CF0E9E8-29C5-4EE8-BB1C-0ECA675E7F97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.BusinessLogic", "GMB.BusinessLogic\GMB.BusinessLogic.csproj", "{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5CF0E9E8-29C5-4EE8-BB1C-0ECA675E7F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CF0E9E8-29C5-4EE8-BB1C-0ECA675E7F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CF0E9E8-29C5-4EE8-BB1C-0ECA675E7F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
