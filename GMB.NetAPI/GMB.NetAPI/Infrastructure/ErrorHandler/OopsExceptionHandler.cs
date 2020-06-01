@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 
-namespace GMB.NetAPI.Infrastructure
+namespace GMB.NetAPI.Infrastructure.ErrorHandler
 {
     /// <summary>
     /// Overall Exception handler to catch uncaught messages and give end user details
