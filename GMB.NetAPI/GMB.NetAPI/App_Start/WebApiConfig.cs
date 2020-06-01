@@ -1,4 +1,4 @@
-﻿using GMB.NetAPI.Infrastructure;
+﻿using GMB.NetAPI.Infrastructure.ErrorHandler;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
 using System.Net.Http.Formatting;

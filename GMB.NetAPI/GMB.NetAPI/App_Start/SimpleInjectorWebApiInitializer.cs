@@ -1,4 +1,6 @@
 using System.Web.Http;
+using GMB.BusinessLogic.AppsLogic;
+using GMB.BusinessLogic.UserAccountsLogic;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
@@ -12,6 +14,8 @@ namespace GMB.NetAPI.App_Start
     /// </summary>
     public static class SimpleInjectorWebApiInitializer
     {
+        public static Container Container;
+
         /// <summary>Initialize the container and register it as Web API Dependency Resolver.</summary>
         public static void Initialize()
         {
@@ -26,14 +30,17 @@ namespace GMB.NetAPI.App_Start
             
             GlobalConfiguration.Configuration.DependencyResolver =
                 new SimpleInjectorWebApiDependencyResolver(container);
+
+            Container = container;
         }
      
         private static void InitializeContainer(Container container)
         {
-#error Register your services here (remove this line).
-
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
+
+            container.Register<IAppsLogic, AppsLogic>();
+            container.Register<IUserAccountsLogic, UserAccountsLogic>();
         }
     }
 }
