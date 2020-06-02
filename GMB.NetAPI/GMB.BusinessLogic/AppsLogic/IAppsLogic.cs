@@ -1,8 +1,6 @@
-﻿using GMB.Model.AppsInfo;
-using System;
+﻿using GMB.BusinessLogic.Utilities;
+using GMB.Model.AppsInfo;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GMB.BusinessLogic.AppsLogic
@@ -14,6 +12,6 @@ namespace GMB.BusinessLogic.AppsLogic
     {
         Task<IEnumerable<Apps>> GetAll();
         Task<int> Insert(Apps user);
-        Task Update(Apps user);
+        Task<RequestResponse> Update(Apps user);
     }
 }

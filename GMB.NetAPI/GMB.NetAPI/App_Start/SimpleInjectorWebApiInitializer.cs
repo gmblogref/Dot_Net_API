@@ -1,9 +1,9 @@
-using System.Web.Http;
 using GMB.BusinessLogic.AppsLogic;
 using GMB.BusinessLogic.UserAccountsLogic;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
+using System.Web.Http;
 
 [assembly: WebActivator.PostApplicationStartMethod(typeof(GMB.NetAPI.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 namespace GMB.NetAPI.App_Start

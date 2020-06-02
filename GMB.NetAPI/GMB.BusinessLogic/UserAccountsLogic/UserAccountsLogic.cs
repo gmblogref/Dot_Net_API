@@ -1,10 +1,7 @@
 ﻿using GMB.Model.UserInfo;
 using GMB.Repository;
 using GMB.Repository.UserRepo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GMB.BusinessLogic.UserAccountsLogic
