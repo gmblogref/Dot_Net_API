@@ -28,7 +28,9 @@ namespace GMB.NetAPI.Infrastructure.Presentation
         /// return ID of new app
         /// </summary>
         /// <param name="app"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// App Id of new app
+        /// </returns>
         public async Task<int> AddApp(AppsRequestModel app)
         {
             Apps a = new Apps
@@ -43,7 +45,9 @@ namespace GMB.NetAPI.Infrastructure.Presentation
         /// <summary>
         /// Get all apps that are in database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// List of all apps
+        /// </returns>
         public async Task<IEnumerable<Apps>> GetAllApps()
         {
             return await AppsLogic.GetAll();
@@ -54,7 +58,9 @@ namespace GMB.NetAPI.Infrastructure.Presentation
         /// </summary>
         /// <param name="id"></param>
         /// <param name="app"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// RequestResponse enum code
+        /// </returns>
         public async Task<RequestResponse> UpdateApp(int id, AppsRequestModel app)
         {
             Apps a = new Apps

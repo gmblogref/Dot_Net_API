@@ -19,7 +19,7 @@ namespace GMB.Repository.UserRepo
         public abstract Task<IEnumerable<UserAccounts>> GetAllUserAccounts();
 
         [Sql("UserAccounts_GetById", Schema = "dbo")]
-        public abstract Task<UserAccounts> GetByIdUserAccount(int userAccountsId);
+        public abstract Task<UserAccounts> GetByIdUserAccount(int userAccountId);
 
         [Sql("UserAccounts_Insert", Schema = "dbo")]
         public abstract Task<int> InsertUserAccount(UserAccounts user);

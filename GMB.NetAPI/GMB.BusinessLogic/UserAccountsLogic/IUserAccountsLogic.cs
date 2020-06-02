@@ -1,4 +1,5 @@
-﻿using GMB.Model.UserInfo;
+﻿using GMB.BusinessLogic.Utilities;
+using GMB.Model.UserInfo;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,10 +10,10 @@ namespace GMB.BusinessLogic.UserAccountsLogic
     /// </summary>
     public interface IUserAccountsLogic
     {
-        Task Delete(int userAccountId);
+        Task<RequestResponse> Delete(int userAccountId);
         Task<IEnumerable<UserAccounts>> GetAll();
         Task<UserAccounts> GetById(int userAccountsId);
         Task<int> Insert(UserAccounts user);
-        Task Update(UserAccounts user);
+        Task<RequestResponse> Update(UserAccounts user);
     }
 }
