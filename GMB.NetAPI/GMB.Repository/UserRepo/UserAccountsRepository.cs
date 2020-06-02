@@ -1,10 +1,7 @@
-﻿using Insight.Database;
-using System;
+﻿using GMB.Model.UserInfo;
+using Insight.Database;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using GMB.Model.UserInfo;
 
 namespace GMB.Repository.UserRepo
 {

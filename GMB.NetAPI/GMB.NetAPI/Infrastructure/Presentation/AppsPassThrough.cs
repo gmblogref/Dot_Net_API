@@ -1,12 +1,9 @@
 ﻿using GMB.BusinessLogic.AppsLogic;
+using GMB.BusinessLogic.Utilities;
 using GMB.Model.AppsInfo;
 using GMB.NetAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace GMB.NetAPI.Infrastructure.Presentation
 {
@@ -43,9 +40,31 @@ namespace GMB.NetAPI.Infrastructure.Presentation
             return await AppsLogic.Insert(a);
         }
 
+        /// <summary>
+        /// Get all apps that are in database
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<Apps>> GetAllApps()
         {
             return await AppsLogic.GetAll();
+        }
+
+        /// <summary>
+        /// Update app with new information
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="app"></param>
+        /// <returns></returns>
+        public async Task<RequestResponse> UpdateApp(int id, AppsRequestModel app)
+        {
+            Apps a = new Apps
+            {
+                AppsId = id,
+                AppDesc = app.AppDesc,
+                AppName = app.AppName
+            };
+
+            return await AppsLogic.Update(a);
         }
     }
 }

@@ -1,11 +1,9 @@
-﻿using GMB.Model.AppsInfo;
+﻿using GMB.BusinessLogic.Utilities;
+using GMB.Model.AppsInfo;
 using GMB.Repository;
 using GMB.Repository.AppsRepo;
-using GMB.Repository.UserRepo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GMB.BusinessLogic.AppsLogic
@@ -52,9 +50,19 @@ namespace GMB.BusinessLogic.AppsLogic
             return -1;
         }
 
-        public async Task Update(Apps app)
+        public async Task<RequestResponse> Update(Apps app)
         {
-            await repo.UpdateApplication(app);
+            try
+            {
+                await repo.UpdateApplication(app);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return RequestResponse.Failed;
+            }
+
+            return RequestResponse.Successful;
         }
     }
 }
