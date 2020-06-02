@@ -1,6 +1,8 @@
-﻿using GMB.Model.UserInfo;
+﻿using GMB.BusinessLogic.Utilities;
+using GMB.Model.UserInfo;
 using GMB.Repository;
 using GMB.Repository.UserRepo;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,30 +19,102 @@ namespace GMB.BusinessLogic.UserAccountsLogic
             this.repo = connection.GetAs<UserAccountsRepository>();
         }
 
-        public async Task Delete(int userId)
+        /// <summary>
+        /// Delete user accounts by ID
+        /// </summary>
+        /// <returns>
+        /// RequestResponse enum code
+        /// </returns>
+        public async Task<RequestResponse> Delete(int userAccountsId)
         {
-            await repo.DeleteUserAccount(userId);
+            try
+            {
+                await repo.DeleteUserAccount(userAccountsId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return RequestResponse.Failed;
+            }
+
+            return RequestResponse.Successful;
         }
 
+        /// <summary>
+        /// Get all user accounts that are in database
+        /// </summary>
+        /// <returns>
+        /// List of all User Accounts
+        /// </returns>
         public async Task<IEnumerable<UserAccounts>> GetAll()
         {
             var userList = await repo.GetAllUserAccounts();
             return userList;
         }
 
-        public async Task<UserAccounts> GetById(int userId)
+        /// <summary>
+        /// Get all user accounts that are in database
+        /// </summary>
+        /// <returns>
+        /// Specified User Account if found
+        /// Null otherwise
+        /// </returns>
+        public async Task<UserAccounts> GetById(int userAccountId)
         {
-            return await repo.GetByIdUserAccount(userId);
+            var user = await repo.GetByIdUserAccount(userAccountId);
+            if (user != null)
+            {
+                return user;
+            }
+
+            return null;
         }
 
+        /// <summary>
+        /// Add new user account to database
+        /// return ID of new app
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns>
+        /// UserAccountId of new user account
+        /// </returns>
         public async Task<int> Insert(UserAccounts user)
         {
-            return await repo.InsertUserAccount(user);
+            try
+            {
+                // TODO -- Why am I not getting the ID returned and getting ExecuteScalar error ???
+                var userId = await repo.InsertUserAccount(user);
+                return userId;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return -1;
         }
 
-        public async Task Update(UserAccounts user)
+        /// <summary>
+        /// Update user account with new information
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="app"></param>
+        /// <returns>
+        /// RequestResponse enum code
+        /// </returns>
+        public async Task<RequestResponse> Update(UserAccounts user)
         {
-            await repo.UpdateUserAccount(user);
+            try
+            {
+                await repo.UpdateUserAccount(user);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return RequestResponse.Failed;
+            }
+
+            return RequestResponse.Successful;
         }
     }
 }

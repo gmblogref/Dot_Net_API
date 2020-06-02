@@ -24,14 +24,14 @@ namespace GMB.NetAPI.Controllers
         [Route("add")]
         public async Task<IHttpActionResult> AddToApps([FromBody]AppsRequestModel request)
         {
-            var appsResponse = await GetInstance<AppsPassThrough>().AddApp(request);
-            if (appsResponse > 0)
+            var response = await GetInstance<AppsPassThrough>().AddApp(request);
+            if (response > 0)
             {
-                return Content(HttpStatusCode.OK, appsResponse);
+                return Content(HttpStatusCode.OK, response);
             }
             else
             {
-                return Content(HttpStatusCode.InternalServerError, appsResponse);
+                return Content(HttpStatusCode.InternalServerError, response);
             }
         }
 
@@ -44,14 +44,14 @@ namespace GMB.NetAPI.Controllers
         [Route("getall")]
         public async Task<IHttpActionResult> GetAllApps()
         {
-            var appsResponse = await GetInstance<AppsPassThrough>().GetAllApps();
-            if (appsResponse != null)
+            var response = await GetInstance<AppsPassThrough>().GetAllApps();
+            if (response != null)
             {
-                return Content(HttpStatusCode.OK, appsResponse);
+                return Content(HttpStatusCode.OK, response);
             }
             else
             {
-                return Content(HttpStatusCode.InternalServerError, appsResponse);
+                return Content(HttpStatusCode.InternalServerError, response);
             }
         }
 
@@ -66,14 +66,14 @@ namespace GMB.NetAPI.Controllers
         [Route("update/{id:int}")]
         public async Task<IHttpActionResult> UpdateApp(int id, [FromBody] AppsRequestModel request)
         {
-            var appsResponse = await GetInstance<AppsPassThrough>().UpdateApp(id, request);
-            if (appsResponse == RequestResponse.Successful)
+            var response = await GetInstance<AppsPassThrough>().UpdateApp(id, request);
+            if (response == RequestResponse.Successful)
             {
-                return Content(HttpStatusCode.OK, appsResponse);
+                return Content(HttpStatusCode.OK, response);
             }
             else
             {
-                return Content(HttpStatusCode.InternalServerError, appsResponse);
+                return Content(HttpStatusCode.InternalServerError, response);
             }
         }
     }
