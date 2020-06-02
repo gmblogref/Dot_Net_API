@@ -42,5 +42,10 @@ namespace GMB.NetAPI.Infrastructure.Presentation
 
             return await AppsLogic.Insert(a);
         }
+
+        public async Task<IEnumerable<Apps>> GetAllApps()
+        {
+            return await AppsLogic.GetAll();
+        }
     }
 }
