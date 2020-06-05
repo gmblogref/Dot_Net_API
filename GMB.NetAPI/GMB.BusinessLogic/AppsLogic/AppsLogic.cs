@@ -52,9 +52,9 @@ namespace GMB.BusinessLogic.AppsLogic
         {
             try
             {
-                // TODO -- Why am I not getting the ID returned and getting ExecuteScalar error ???
-                var appId = await repo.InsertApplication(app);
-                return appId;
+                var result = await repo.InsertApplication(app);
+
+                return result;
             }
             catch(Exception ex)
             {
