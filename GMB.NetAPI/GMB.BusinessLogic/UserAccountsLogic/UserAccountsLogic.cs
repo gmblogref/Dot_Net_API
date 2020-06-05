@@ -82,9 +82,8 @@ namespace GMB.BusinessLogic.UserAccountsLogic
         {
             try
             {
-                // TODO -- Why am I not getting the ID returned and getting ExecuteScalar error ???
-                var userId = await repo.InsertUserAccount(user);
-                return userId;
+                var result = await repo.InsertUserAccount(user);
+                return result;
             }
             catch (Exception ex)
             {
