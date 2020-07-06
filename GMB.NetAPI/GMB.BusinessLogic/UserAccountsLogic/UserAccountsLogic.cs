@@ -1,4 +1,5 @@
 ﻿using GMB.BusinessLogic.Utilities;
+using GMB.CryptoService;
 using GMB.Model.UserInfo;
 using GMB.Repository;
 using GMB.Repository.UserRepo;
@@ -114,6 +115,33 @@ namespace GMB.BusinessLogic.UserAccountsLogic
             }
 
             return RequestResponse.Successful;
+        }
+
+        /// <summary>
+        /// Validate user account exists
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public async Task<bool> ValidateUserAccount(UserAccounts user)
+        {
+            try
+            {
+                var enc = new Encryption().Encrypt(user.Password);
+                var dec = new Decryption().Decrypt(enc);
+                var result = await repo.ValidateUserAccount(user.UserName, new Encryption().Encrypt(user.Password));
+
+                if(result != null)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return false;
         }
     }
 }

@@ -15,5 +15,6 @@ namespace GMB.BusinessLogic.UserAccountsLogic
         Task<UserAccounts> GetById(int userAccountsId);
         Task<int> Insert(UserAccounts user);
         Task<RequestResponse> Update(UserAccounts user);
+        Task<bool> ValidateUserAccount(UserAccounts user);
     }
 }

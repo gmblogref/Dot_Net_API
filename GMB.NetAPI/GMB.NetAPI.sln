@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.NetAPI", "GMB.NetAPI\GM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.BusinessLogic", "GMB.BusinessLogic\GMB.BusinessLogic.csproj", "{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMB.CryptoService", "GMB.CryptoService\GMB.CryptoService.csproj", "{D75A2EFA-10A8-4E44-827F-EFC9D766591C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{366940B0-302C-4C3A-BEA6-A3B7A5E06B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75A2EFA-10A8-4E44-827F-EFC9D766591C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75A2EFA-10A8-4E44-827F-EFC9D766591C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75A2EFA-10A8-4E44-827F-EFC9D766591C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75A2EFA-10A8-4E44-827F-EFC9D766591C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

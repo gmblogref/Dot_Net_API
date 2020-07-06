@@ -26,5 +26,8 @@ namespace GMB.Repository.UserRepo
 
         [Sql("UserAccounts_Update", Schema = "dbo")]
         public abstract Task UpdateUserAccount(UserAccounts user);
+
+        [Sql("UserAccounts_Validate", Schema = "dbo")]
+        public abstract Task<int?> ValidateUserAccount(string userName, string Password);
     }
 }

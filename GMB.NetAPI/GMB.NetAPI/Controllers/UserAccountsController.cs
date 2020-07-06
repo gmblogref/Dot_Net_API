@@ -116,6 +116,27 @@ namespace GMB.NetAPI.Controllers
             {
                 return Content(HttpStatusCode.InternalServerError, response);
             }
-        }        
+        }
+
+        /// <summary>
+        /// validate User Account for login
+        /// Example Fiddler test string https://localhost:44394/api/useraccount/login
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("login")]
+        public async Task<IHttpActionResult> ValidateUserAccount([FromBody] UserAccountsRequestModel request)
+        {
+            var response = await GetInstance<UserAccountsPassThrough>().ValidateUserAccount(request);
+            if (response)
+            {
+                return Content(HttpStatusCode.OK, response);
+            }
+            else
+            {
+                return Content(HttpStatusCode.InternalServerError, response);
+            }
+        }
     }
 }

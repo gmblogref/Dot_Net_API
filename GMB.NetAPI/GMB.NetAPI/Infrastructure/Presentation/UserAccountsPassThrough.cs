@@ -112,5 +112,21 @@ namespace GMB.NetAPI.Infrastructure.Presentation
 
             return await UserAccountsLogic.Update(ua);
         }
+
+        /// <summary>
+        /// Validate user account for login
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<bool> ValidateUserAccount(UserAccountsRequestModel user)
+        {
+            UserAccounts ua = new UserAccounts
+            {
+                UserName = user.UserName,
+                Password = user.Password
+            };
+
+            return await UserAccountsLogic.ValidateUserAccount(ua);
+        }
     }
 }
