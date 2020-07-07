@@ -83,6 +83,7 @@ namespace GMB.BusinessLogic.UserAccountsLogic
         {
             try
             {
+                user.Password = new Encryption().Encrypt(user.Password);
                 var result = await repo.InsertUserAccount(user);
                 return result;
             }
@@ -127,14 +128,7 @@ namespace GMB.BusinessLogic.UserAccountsLogic
         {
             try
             {
-                var enc = new Encryption().Encrypt(user.Password);
-                var dec = new Decryption().Decrypt(enc);
-                var result = await repo.ValidateUserAccount(user.UserName, new Encryption().Encrypt(user.Password));
-
-                if(result != null)
-                {
-                    return true;
-                }
+                return await repo.ValidateUserAccount(user.UserName, new Encryption().Encrypt(user.Password)) == null ? false : true;
             }
             catch (Exception ex)
             {
