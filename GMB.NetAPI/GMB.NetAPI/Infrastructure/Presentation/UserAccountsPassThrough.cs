@@ -46,7 +46,8 @@ namespace GMB.NetAPI.Infrastructure.Presentation
                 City = user.City,
                 State = user.State,
                 Zip = user.Zip,
-                BirthDate = user.BirthDate
+                BirthDate = user.BirthDate,
+                Password = user.Password
             };
 
             return await UserAccountsLogic.Insert(ua);
@@ -107,7 +108,7 @@ namespace GMB.NetAPI.Infrastructure.Presentation
                 City = user.City,
                 State = user.State,
                 Zip = user.Zip,
-                BirthDate = user.BirthDate
+                BirthDate = user.BirthDate                
             };
 
             return await UserAccountsLogic.Update(ua);
